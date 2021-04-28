@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="card-body">
+        <form #usuarioFrom="ngForm" (ngSubmit)="addUser(usuarioFrom)">
+            <div class="form-group">
+                <input name="nombre" type="text" class="form-control" placeholder="Nombre" [(ngModel)]="data.userSelect.nombre">
+            </div>
+            <div class="form-group">
+                <input name="apellido" type="text" class="form-control" placeholder="Apellido" [(ngModel)]="data.userSelect.apellido">
+            </div>
+            <div class="form-group">
+                <input name="cedula" type="number" class="form-control" placeholder="Cedula" [(ngModel)]="data.userSelect.cedula">
+            </div>
+            <div class="form-group">
+                <input name="correo" type="text" class="form-control" placeholder="correo" [(ngModel)]="data.userSelect.correo">
+            </div>
+            <div class="form-group">
+                <input name="nombreUsuario" type="text" class="form-control" placeholder="nombreUsuario" [(ngModel)]="data.userSelect.nombreUsuario">
+            </div>
+            <div class="form-group">
+                <input name="password" type="password" class="form-control" placeholder="password" [(ngModel)]="data.userSelect.password">
+            </div>
+            <div class="form-group">
+                <input name="telefono" type="number" class="form-control" placeholder="telefono" [(ngModel)]="data.userSelect.telefono">
+            </div>
+            <div class="form-group">
+                <input name="direccion" type="text" class="form-control" placeholder="direccion" [(ngModel)]="data.userSelect.direccion">
+            </div>
+            <div class="form-group">
+                <input name="fechaNacimiento" type="text" class="form-control" placeholder="fechaNacimiento" [(ngModel)]="data.userSelect.fechaNacimiento">
+            </div>
+            <div class="form-group">
+                <input name="codigoPostal" type="number" class="form-control" placeholder="codigoPostal" [(ngModel)]="data.userSelect.codigoPostal">
+            </div>
+            <div class="form-group">
+                <input name="tipoSangre" type="text" class="form-control" placeholder="tipoSangre" [(ngModel)]="data.userSelect.tipoSangre">
+            </div>
+            <div class="form-group">
+                <input name="sexo" type="text" class="form-control" placeholder="sexo" [(ngModel)]="data.userSelect.sexo">
+            </div>
+            <div class="form-group">
+                <input name="religion" type="text" class="form-control" placeholder="religion" [(ngModel)]="data.userSelect.religion">
+            </div>
+            <div class="form-group">
+                <input name="oficio" type="text" class="form-control" placeholder="oficio" [(ngModel)]="data.userSelect.oficio">
+            </div>
+            <button class="btn btn-primary mr-2">clean</button>
+            <button class="btn btn-secondary">Save</button>
+
+        </form>
+    </div>
+    <div class="col-mdd-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>NombreU</th>
+                    <th>Correo</th>
+                    <th>Cedula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of data.usuarios">
+                    <td>{{usuario.nombreUsuario}}</td>
+                    <td>{{usuario.correo}}</td>
+                    <td>{{usuario.cedula}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-body">
+        <form #usuarioFrom2="ngForm" (ngSubmit)="addUser2()">
+            <div class="form-group">
+                <input name="correo" type="text" class="form-control" placeholder="Correo" [(ngModel)]="loginuser.correo" [formControl]="emailCrl">
+            </div>
+            <div class="form-group">
+                <input name="password" type="password" class="form-control" placeholder="Contraseña" [(ngModel)]="loginuser.password">
+            </div>
+            <!-- LA matriz de numeros -->
+            <div class="col-mdd-8">
+                <table class="table table-striped">
+                    <tr>
+                        <th>{{data.codigoSelect.n1}}</th>
+                        <th>{{data.codigoSelect.n2}}</th>
+                        <th>{{data.codigoSelect.n3}}</th>
+                    </tr>
+                    <tbody>
+
+                        <tr *ngFor="let codigo of data.codigos">
+                            <td (click)="numero_1(codigo.n1)">{{codigo.n1}}</td>
+                            <td (click)="numero_2(codigo.n2)">{{codigo.n2}}</td>
+                            <td (click)="numero_3(codigo.n3)">{{codigo.n3}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btn-primary mr-2">clean</button>
+            <button class="btn btn-secondary">Login</button>
+
+        </form>
+    </div>
+</div>
